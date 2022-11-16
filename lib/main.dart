@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:solid_principal/dependency_inversion_pricipal.dart';
 import 'package:solid_principal/order_calc.dart';
 
 import 'open_closed_principal.dart';
+import 'liskov_principal.dart';
 
 void main() {
   final customerInfo = CustomerInfo();
@@ -13,4 +15,12 @@ void main() {
   EmailOrder.sendEmail();
   print(customerInfo.balance);
   AreaCalculator().shape?.area();
+
+  final square = Sq();
+  square.setWidth(20);
+  print(square.width);
+
+  final service = Service();
+  service.connection = FirebaseConnection();
+  service.attach();
 }
